@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <style>
+        .site-header {
+            min-width: 100%;
+            height: 200px;
+            margin-bottom: 5px;
+            padding-top: 30px;
+            background: #54c5ee no-repeat center;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .object {
+            position: absolute;
+        }
+
+        .van {
+            top: 10%;
+        }
+
+        .van1 {
+            top: 2%;
+            left: 94%;
+        }
+
+        .van2 {
+            top: 2%;
+            left: 81%;
+        }
+    </style>
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">Регистрация</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="Username">Фамилия<span class="text-danger">*</span></label>
+                        <input type="text" name="surname" class="form-control" id="surname"
+                            placeholder="Введите фамилию">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Username">Имя<span class="text-danger">*</span></label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Введите имя">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Username">Отчество<span class="text-danger">*</span></label>
+                        <input type="text" name="patronymic" class="form-control" id="patronymic"
+                            placeholder="Введите отчество">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Username">Выберете учебное заведение<span class="text-danger">*</span></label>
+                        <select class="form-select" aria-label="Default select example" name="schools">
+                            <option selected>{{bd[0][0]}}</option>
+                            {% for i in bd[1:] %}
+                            <option value="{{i[0]}}">{{i[0]}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Username">Логин<span class="text-danger">*</span></label>
+                        <input type="text" name="username" class="form-control" id="Username"
+                            placeholder="Введите логин">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password">Пароль<span class="text-danger">*</span></label>
+                        <input type="password" name="password" class="form-control" id="Password"
+                            placeholder="Введите пароль">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password">Повторите пароль<span class="text-danger">*</span></label>
+                        <input type="password" name="password_again" class="form-control" id="Password"
+                            placeholder="Введите пароль повторно">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Username">Введите пароль администратора </label>
+                        <input type="text" name="admin" id="admin" placeholder="Введите пароль">
+                    </div>
+                </div>
+                <div class="modal-footer pt-4">
+                    <button type="submit" class="btn btn-info mx-auto w-100">Зарегистрироваться</button>
+                    {{message}}
+
+                </div>
+                <p class="text-center">Если есть аккаунт, <a href="/login">войдите</a></p>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
